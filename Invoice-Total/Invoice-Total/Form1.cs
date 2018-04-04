@@ -19,10 +19,10 @@ namespace Invoice_Total
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            decimal subtotal = Convert.ToDecimal(txtSubtotal.Text);
+            decimal subtotal = Decimal.Parse(txtSubtotal.Text);
             decimal discountPercent = .25m;
-            decimal discountAmount = subtotal * discountPercent;
-            decimal invoiceTotal = subtotal - discountAmount;
+            decimal discountAmount = Math.Round(subtotal * discountPercent,2);
+            decimal invoiceTotal = Math.Round(subtotal - discountAmount,2);
 
             txtDiscountPercent.Text = discountPercent.ToString("p1");
             txtDiscountAmount.Text = discountAmount.ToString("c");
