@@ -21,8 +21,11 @@ namespace Invoice_Total
         {
             try
             {
-                
-                if (decimal.Parse(txtSubtotal.Text) > 0 && decimal.Parse(txtSubtotal.Text) < 10000 )
+                if (txtSubtotal.Text == "")
+                {
+                    MessageBox.Show("Subtotal is a required field. Please enter a valid number.", "Entry Error");
+                }
+                else if (decimal.Parse(txtSubtotal.Text) > 0 && decimal.Parse(txtSubtotal.Text) < 10000 )
                 {
                     decimal subtotal = Decimal.Parse(txtSubtotal.Text);
                     decimal discountPercent = .25m;
@@ -37,10 +40,7 @@ namespace Invoice_Total
                 {
                     MessageBox.Show("Subtotal value must be greater than 0, but less than 10,000.");
                 }
-                else if (txtSubtotal.Text == "")
-                {
-                    MessageBox.Show("Subtotal is a required field. Please enter a valid number.", "Entry Error");
-                }
+                
 
             }
             catch (Exception)
